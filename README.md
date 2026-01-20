@@ -1,6 +1,11 @@
 # Mefstore
 Symulator sklepu z możliwością zarządzania produkami, koszykiem oraz generowaniem paragonu.
 
+## Uruchamianie
+```bash
+make
+```
+
 ## Do zrobienia
 - [ ] GUI - konsola
 - [ ] JSON do zapisu stanu sklepu

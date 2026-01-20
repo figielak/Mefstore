@@ -5,6 +5,8 @@
 int main() {
     Store store;
     ConsoleUI ui;
+
     ui.run(store);
+
     return 0;
 }
