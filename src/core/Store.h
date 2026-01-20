@@ -3,6 +3,7 @@
 
 #include "Product.h"
 #include <vector>
+#include <string>
 
 using namespace std;
 
@@ -20,6 +21,8 @@ public:
     void removeProduct(const string& name);
 
     void editProduct(const string& name);
+
+    void loadProducts(string filename);
 
 };
 

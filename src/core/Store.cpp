@@ -1,16 +1,51 @@
 #include "Store.h"
 #include <iostream>
+#include <fstream>
+#include <sstream>
 
 using namespace std;
 
 Store::Store(){
-    // Kilka przykładowych produktów (do testów)
-    products.push_back(Product(1, "Chleb", 3.0, "Produkty"));
-    products.push_back(Product(2, "Mleko", 2.0, "Mleczne"));
-    products.push_back(Product(3, "Jajka", 5.0, "Produkty"));
-    products.push_back(Product(4, "Jabłko", 2.0, "Owoce"));
+    loadProducts("products.csv");
 }
 
 vector<Product> Store::getProducts(){
     return products;
+}
+
+// Wczytywanie produktów z pliku
+void Store::loadProducts(string filename){
+    string filepath = "data/" + filename;
+    cout << "Wczytywanie produktów z pliku: " << filepath << endl;
+    ifstream file(filepath);
+
+    if (!file.is_open()) {
+        cout << "Nie udalo sie otworzyc pliku: " << filename << endl;
+        return;
+    }
+
+    string line;
+    while(getline(file, line)){
+        if(line.empty()) continue;
+
+        stringstream ss(line);
+        string id_str, name , price_str, category;
+
+        getline(ss, id_str, ',');
+        getline(ss, name, ',');
+        getline(ss, price_str, ',');
+        getline(ss, category, ',');
+
+        int id = stoi(id_str);
+        double price = stod(price_str);
+
+        try {
+            products.push_back(Product(id, name, price, category));
+        } catch (const exception& e) {
+            cout << "Nie udalo sie wczytac produktu: " << e.what() << endl;
+            continue;
+        }
+    }
+
+    file.close();
 }

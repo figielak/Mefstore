@@ -39,7 +39,7 @@ void ConsoleUI::handleMenuChoices(int choice, Store& store){
 
 // Wyświetlanie produktów
 void ConsoleUI::showProducts(Store& store){
-    cout << "\n+=== Produkty ===+\n";
+    cout << "\n+====== Produkty ======+\n";
     for (Product& product : store.getProducts()){
         cout << "[" << product.getId() << "] " << product.getName() << " \n";
     }
