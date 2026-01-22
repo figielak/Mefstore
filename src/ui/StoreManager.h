@@ -1,12 +1,18 @@
 #ifndef STORE_MANAGER_H
 #define STORE_MANAGER_H
 
+#include "../core/Store.h"
+#include "ShowProducts.h"
+#include <iostream>
+#include <cstdlib>
+
+using namespace std;
+
 class StoreManager {
 public:
     void runStoreManager(Store& store);
 
 private:
-    /// STORE MANAGER
     void showStoreManager(Store& store);
 
     void handleStoreManagerChoices(int choice, Store& store);
@@ -16,19 +22,6 @@ private:
     void editProduct(Store& store);
 
     void removeProduct(Store& store);
-
-    void showProducts(Store& store);
-
-    /// PRODUCTS MENU
-    void showProductsMenu(Store& store);
-
-    void handleProductsMenuChoices(int choice, Store& store);
-
-    void showProductsById(Store& store);
-
-    void showProductsByName(Store& store);
-
-    void showProductsByCategory(Store& store);
 };
 
 #endif // STORE_MANAGER_H

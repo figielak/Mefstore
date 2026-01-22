@@ -3,6 +3,10 @@
 
 #include "../core/Store.h"
 #include "ConsoleUI.h"
+#include "ShowProducts.h"
+#include <iostream>
+
+using namespace std;
 
 class BasketManager {
 public:
@@ -13,13 +17,11 @@ private:
 
     void handleBasketManagerChoices(int choice, Store& store);
 
-    void showProducts(Store& store);
+    void showBasket(Store& store);
 
     void addToBasket(Store& store);
 
     void removeFromBasket(Store& store);
-
-    void showBasket(Store& store);
 
     void generateReceipt(Store& store);
 };

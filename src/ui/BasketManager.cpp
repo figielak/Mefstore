@@ -1,8 +1,4 @@
-#include "../core/Store.h"
 #include "BasketManager.h"
-#include <iostream>
-
-using namespace std;
 
 void BasketManager::runBasketManager(Store& store) {
     int choice = -1;
@@ -28,8 +24,10 @@ void BasketManager::showBasketManager(Store& store){
 }
 
 void BasketManager::handleBasketManagerChoices(int choice, Store& store){
+    ShowProducts showProducts;
+
     switch (choice){
-        case 1: showProducts(store); break;
+        case 1: showProducts.showProducts(store); break;
         case 2: addToBasket(store); break;
         case 3: removeFromBasket(store); break;
         case 4: showBasket(store); break;
@@ -37,10 +35,6 @@ void BasketManager::handleBasketManagerChoices(int choice, Store& store){
         case 0: break;
         default: cout << "Nieprawidłowy wybór\n";
     }
-}
-
-void BasketManager::showProducts(Store& store){
-    return;
 }
 
 void BasketManager::showBasket(Store& store){

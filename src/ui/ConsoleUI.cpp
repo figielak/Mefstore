@@ -1,11 +1,4 @@
 #include "ConsoleUI.h"
-#include "StoreManager.h"
-#include "BasketManager.h"
-
-#include <cstdlib>
-#include <iostream>
-
-using namespace std;
 
 // Główna pętla programu
 void ConsoleUI::run(Store& store) {

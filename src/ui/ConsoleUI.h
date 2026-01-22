@@ -3,7 +3,11 @@
 
 #include "../core/Store.h"
 #include "../core/Product.h"
+#include "StoreManager.h"
+#include "BasketManager.h"
+
 #include <string>
+#include <cstdlib>
 #include <iostream>
 
 using namespace std;
@@ -14,12 +18,8 @@ public:
 
 private:
     void showMenu();
-    void handleMenuChoices(int choice, Store& store);
 
-    void showProductsMenu(Store& store);
-    void showProductsById(Store& store);
-    void showProductsByName(Store& store);
-    void showProductsByCategory(Store& store);
+    void handleMenuChoices(int choice, Store& store);
 };
 
 #endif // CONSOLE_UI_H
