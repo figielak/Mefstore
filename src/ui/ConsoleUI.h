@@ -16,11 +16,6 @@ private:
     void showMenu();
     void handleMenuChoices(int choice, Store& store);
 
-    void showProducts(Store& store);
-    void addProduct(Store& store);
-    void editProduct(Store& store);
-    void removeProduct(Store& store);
-
     void showProductsMenu(Store& store);
     void showProductsById(Store& store);
     void showProductsByName(Store& store);

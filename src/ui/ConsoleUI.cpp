@@ -1,4 +1,8 @@
-#include "../ui/ConsoleUI.h"
+#include "ConsoleUI.h"
+#include "StoreManager.h"
+#include "BasketManager.h"
+
+#include <cstdlib>
 #include <iostream>
 
 using namespace std;
@@ -10,6 +14,8 @@ void ConsoleUI::run(Store& store) {
     do {
         showMenu();
         cin >> choice;
+        system("CLS");
+        system("clear");
         handleMenuChoices(choice, store);
     } while (choice != 0);
 }
@@ -25,69 +31,13 @@ void ConsoleUI::showMenu() {
 
 // Obsługa wyboru użytkownika z menu
 void ConsoleUI::handleMenuChoices(int choice, Store& store){
+    StoreManager storeManager;
+    BasketManager basketManager;
+
     switch (choice){
-        case 1: showProducts(store); break;
-        case 2: addProduct(store); break;
-        case 3: editProduct(store); break;
-        case 4: removeProduct(store); break;
+        case 1: storeManager.runStoreManager(store); break;
+        case 2: basketManager.runBasketManager(store); break;
         case 0: cout << "Do zobaczenia!\n"; break;
         default: cout << "Nieprawidłowy wybór\n";
     }
-}
-
-// Wyświetlenie menedżera sklepu
-void ConsoleUI::showStoreManager(Store& store){
-    cout << "\n+=== Mefstore ===+\n";
-    cout << "[1] Wyświetl produkty \n";
-    cout << "[2] Dodaj produkt \n";
-    cout << "[3] Edytuj produkt \n";
-    cout << "[4] Usuń produkt \n";
-    cout << "[0] Wroc do menu \n";
-    cout << "+=====================+\n";
-}
-
-// Wyświetlenie zarządzania koszykiem
-void ConsoleUI::showBasketManager(Store& store){
-    cout << "\n+====== Koszyk ======+\n";
-    cout << "[1] Wyświetl produkty \n";
-    cout << "[2] Dodaj produkt \n";
-    cout << "[3] Usun produkt \n";
-    cout << "[4] Wyświetl koszyk \n";
-    cout << "[5] Generuj paragon \n";
-    cout << "[0] Wroc do menu \n";
-    cout << "+=====================+\n";
-}
-
-// Wyświetlanie produktów
-void ConsoleUI::showProductsMenu(Store& store){
-    cout << "\n+=== Wybierz opcje ===+\n";
-    cout << "[1] Sortowanie po id\n";
-    cout << "[2] Sortowanie po nazwie\n";
-    cout << "[3] Wybierz kategorie\n";
-    cout << "[0] Wroc do menu\n";
-    cout << "+=====================+\n";
-}
-
-void ConsoleUI::showProductsById(Store& store){
-    cout << "\n+====== Produkty ======+\n";
-    for (Product& product : store.getProducts()){
-        cout << "[" << product.getId() << "] " << product.getName() << " \n";
-    }
-    cout << "+=====================+\n";
-}
-
-
-// Dodawanie produktu
-void ConsoleUI::addProduct(Store& store){
-    return;
-}
-
-// Edycja produktu
-void ConsoleUI::editProduct(Store& store){
-    return;
-}
-
-// Usuwanie produktu
-void ConsoleUI::removeProduct(Store& store){
-    return;
 }
