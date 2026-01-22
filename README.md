@@ -13,9 +13,20 @@ Aby uruchomić program w katalogu build należy uruchomić polecenie:
 ```
 lub uruchomić Mefstore.exe w katalogu build
 
-## Do zrobienia
+## TODO
+### Mateusz
+- [ ] Dodawanie produktów
+- [ ] Usuwanie produktów
+- [ ] Edytowanie produktów
+
+### Krystian
+- [ ] GUI
+- [ ] Sortowanie produktów po cenie / nazwie
+- [ ] Filtracja produktów po kategorii
+
+## Check List
 - [ ] GUI - konsola
-- [ ] JSON do zapisu stanu sklepu
+- [x] CSV do zapisu stanu sklepu
 - [ ] Genrowanie paragonu do .txt
 - [ ] Szukanie produktów po nazwie (lichtenstein algorithm)
 - [ ] Sortowanie produktów po cenie / nazwie (własne algorytmy)
