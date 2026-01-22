@@ -17,11 +17,9 @@ void ConsoleUI::run(Store& store) {
 // Wyświetlanie głównego menu
 void ConsoleUI::showMenu() {
     cout << "\n+=== Mefstore Menu ===+\n";
-    cout << "|[1] Wyświetl produkty |\n";
-    cout << "|[2] Dodaj produkt     |\n";
-    cout << "|[3] Edytuj produkt    |\n";
-    cout << "|[4] Usuń produkt      |\n";
-    cout << "|[0] Wyjście           |\n";
+    cout << "[1] Menedzer sklepu \n";
+    cout << "[2] Stworz koszyk \n";
+    cout << "[0] Wyjście \n";
     cout << "+=====================+\n";
 }
 
@@ -37,14 +35,47 @@ void ConsoleUI::handleMenuChoices(int choice, Store& store){
     }
 }
 
+// Wyświetlenie menedżera sklepu
+void ConsoleUI::showStoreManager(Store& store){
+    cout << "\n+=== Mefstore ===+\n";
+    cout << "[1] Wyświetl produkty \n";
+    cout << "[2] Dodaj produkt \n";
+    cout << "[3] Edytuj produkt \n";
+    cout << "[4] Usuń produkt \n";
+    cout << "[0] Wroc do menu \n";
+    cout << "+=====================+\n";
+}
+
+// Wyświetlenie zarządzania koszykiem
+void ConsoleUI::showBasketManager(Store& store){
+    cout << "\n+====== Koszyk ======+\n";
+    cout << "[1] Wyświetl produkty \n";
+    cout << "[2] Dodaj produkt \n";
+    cout << "[3] Usun produkt \n";
+    cout << "[4] Wyświetl koszyk \n";
+    cout << "[5] Generuj paragon \n";
+    cout << "[0] Wroc do menu \n";
+    cout << "+=====================+\n";
+}
+
 // Wyświetlanie produktów
-void ConsoleUI::showProducts(Store& store){
+void ConsoleUI::showProductsMenu(Store& store){
+    cout << "\n+=== Wybierz opcje ===+\n";
+    cout << "[1] Sortowanie po id\n";
+    cout << "[2] Sortowanie po nazwie\n";
+    cout << "[3] Wybierz kategorie\n";
+    cout << "[0] Wroc do menu\n";
+    cout << "+=====================+\n";
+}
+
+void ConsoleUI::showProductsById(Store& store){
     cout << "\n+====== Produkty ======+\n";
     for (Product& product : store.getProducts()){
         cout << "[" << product.getId() << "] " << product.getName() << " \n";
     }
     cout << "+=====================+\n";
 }
+
 
 // Dodawanie produktu
 void ConsoleUI::addProduct(Store& store){

@@ -20,6 +20,11 @@ private:
     void addProduct(Store& store);
     void editProduct(Store& store);
     void removeProduct(Store& store);
+
+    void showProductsMenu(Store& store);
+    void showProductsById(Store& store);
+    void showProductsByName(Store& store);
+    void showProductsByCategory(Store& store);
 };
 
 #endif // CONSOLE_UI_H
