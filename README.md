@@ -20,20 +20,23 @@ lub uruchomić Mefstore.exe w katalogu build
 - [ ] Edytowanie produktów
 
 ### Krystian
-- [ ] GUI
-- [ ] Sortowanie produktów po cenie / nazwie
+- [x] GUI
+- [x] Sortowanie produktów po cenie / nazwie
 - [ ] Filtracja produktów po kategorii
+- [ ] Dodawanie produktów do koszyka
+- [ ] Wyświetlanie koszyka
+- [ ] Genrowanie paragonu do .txt
 
 ## Check List
-- [ ] GUI - konsola
+- [x] GUI - konsola
 - [x] CSV do zapisu stanu sklepu
 - [ ] Genrowanie paragonu do .txt
 - [ ] Szukanie produktów po nazwie (lichtenstein algorithm)
-- [ ] Sortowanie produktów po cenie / nazwie (własne algorytmy)
+- [x] Sortowanie produktów po cenie / nazwie (własne algorytmy)
 - [ ] Filtracja produktów po kategorii
 
 ### Sklep
-- [ ] Wyświetlanie produktów
+- [x] Wyświetlanie produktów
 - [ ] Dodawanie produktów
 - [ ] Edytowanie produktów
 - [ ] Usuwanie produktów

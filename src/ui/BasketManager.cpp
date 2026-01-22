@@ -38,17 +38,21 @@ void BasketManager::handleBasketManagerChoices(int choice, Store& store){
 }
 
 void BasketManager::showBasket(Store& store){
+    // TODO: Wyświetlanie koszyka
     return;
 }
 
 void BasketManager::addToBasket(Store& store){
+    // TODO: Dodawanie produktu do koszyka
     return;
 }
 
 void BasketManager::removeFromBasket(Store& store){
+    // TODO: Usuwanie produktu z koszyka
     return;
 }
 
 void BasketManager::generateReceipt(Store& store){
+    // TODO: Generowanie paragonu
     return;
 }
