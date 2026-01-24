@@ -19,6 +19,11 @@ struct Product {
     int getId() const {return id;}
     double getPrice() const {return price;}
     string getCategory() const {return category;}
+
+    // Setters
+    void setName(const string& newName) { name = newName; }
+    void setPrice(double newPrice) { price = newPrice; }
+    void setCategory(const string& newCategory) { category = newCategory; }
 };
 
 #endif //PRODUCT_H

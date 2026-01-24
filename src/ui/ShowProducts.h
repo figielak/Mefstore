@@ -11,6 +11,8 @@ public:
     void showProducts(Store& store);
 
 private:
+    void showAllProducts(Store& store);
+    
     void showProductsMenu(Store& store);
 
     void handleProductsMenuChoices(int choice, Store& store);

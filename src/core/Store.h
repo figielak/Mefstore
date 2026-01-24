@@ -16,11 +16,11 @@ public:
 
     vector<Product> getProducts();
 
-    int addProduct(const Product& product, string filename, string product_name, double product_price, string product_category);
+    void addProduct(string filename, string product_name, double product_price, string product_category);
 
-    void removeProduct(const string& name);
+    bool removeProduct(string filename, string searchValue);
 
-    void editProduct(const string& name);
+    void editProduct(string filename, string searchValue, string new_name, double new_price, string new_category);
 
     void loadProducts(string filename);
 

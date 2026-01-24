@@ -17,6 +17,7 @@ void ShowProducts::showProductsMenu(Store& store){
     cout << "[1] Sortowanie po id\n";
     cout << "[2] Sortowanie po nazwie\n";
     cout << "[3] Wybierz kategorie\n";
+    cout << "[4] Pokaż wszystkie produkty\n";
     cout << "[0] Wroc do menu\n";
     cout << "+=====================+\n";
 }
@@ -26,11 +27,21 @@ void ShowProducts::handleProductsMenuChoices(int choice, Store& store){
         case 1: showProductsById(store); break;
         case 2: showProductsByName(store); break;
         case 3: showProductsByCategory(store); break;
+        case 4: showAllProducts(store); break;
         case 0: break;
         default: cout << "Nieprawidłowy wybór\n";
     }
 }
-
+//funkcja do testowania wyswietlania wszystkich produktow
+void ShowProducts::showAllProducts(Store& store){
+    system("CLS");
+    system("clear");
+    cout << "\n+====== Produkty ======+\n";
+    for (Product& product : store.getProducts()){
+        cout << "[" << product.getId() << "] " << product.getName() << " - " << product.getPrice() << " PLN - " << product.getCategory() << "\n";
+    }
+    cout << "+=====================+\n";
+}
 void ShowProducts::showProductsById(Store& store){
     system("CLS");
     system("clear");

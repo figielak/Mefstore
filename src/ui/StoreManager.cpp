@@ -36,16 +36,43 @@ void StoreManager::handleStoreManagerChoices(int choice, Store& store){
 }
 
 void StoreManager::addProduct(Store& store){
-    
-    return;
+    string name;
+    string category;
+    double price = 0.0;
+    cout << "\n+=== Dodaj produkt ===+\n";
+    cout << "Podaj nazwę produktu: ";
+    cin >> name;
+    cout << "Podaj cenę produktu: ";
+    cin >> price;
+    cout << "Podaj kategorię produktu: ";
+    cin >> category;
+
+    store.addProduct("products.csv", name, price, category);
 }
 
 void StoreManager::editProduct(Store& store){
-    // TODO: Edytowanie produktu (gdy Mati skończy funkcje)
-    return;
+    string searchValue;
+    string new_name;
+    string new_category;
+    double new_price = 0.0;
+    cout << "\n+=== Edytuj produkt ===+" << endl;
+    cout << "Podaj ID lub nazwę produktu: ";
+    cin >> searchValue;
+    cout << "Podaj nową nazwę produktu: ";
+    cin >> new_name;
+    cout << "Podaj nową cenę produktu: ";
+    cin >> new_price;
+    cout << "Podaj nową kategorię produktu: ";
+    cin >> new_category;
+    store.editProduct("products.csv", searchValue, new_name, new_price, new_category);
 }
 
 void StoreManager::removeProduct(Store& store){
-    // TODO: Usuwanie produktu (gdy Mati skończy funkcje)
-    return;
+    string searchValue;
+    
+    cout << "\n+=== Usuwanie produktu ===+" << endl;
+    cout << "Podaj ID lub nazwę produktu: ";
+    cin >> searchValue;
+    
+    store.removeProduct("products.csv", searchValue);
 }
