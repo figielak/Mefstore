@@ -2,6 +2,7 @@
 #define SHOW_PRODUCTS_H
 
 #include "../core/Store.h"
+#include "../algorithms/Sorting.h"
 #include <iostream>
 
 using namespace std;
@@ -12,14 +13,16 @@ public:
 
 private:
     void showAllProducts(Store& store);
-    
+
     void showProductsMenu(Store& store);
 
     void handleProductsMenuChoices(int choice, Store& store);
 
     void showProductsById(Store& store);
 
-    void showProductsByName(Store& store);
+    void showProductsByNameAZ(Store& store);
+
+    void showProductsByNameZA(Store& store);
 
     void showProductsByCategory(Store& store);
 };

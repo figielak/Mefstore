@@ -14,7 +14,9 @@ private:
 public:
     Store();
 
-    vector<Product> getProducts();
+    vector<Product>& getProducts();
+
+    vector<string> getCategories();
 
     void saveProducts(string filename, vector<Product> products);
 

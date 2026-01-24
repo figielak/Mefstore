@@ -10,9 +10,27 @@ Store::Store(){
     loadProducts("products.csv");
 }
 
-vector<Product> Store::getProducts(){
+vector<Product>& Store::getProducts(){
     return products;
 }
+
+vector<string> Store::getCategories(){
+    vector<string> categories;
+    for (const auto& product : products) {
+        bool found = false;
+        for (int i = 0; i < categories.size(); i++) {
+            if (categories[i] == product.getCategory()) {
+                found = true;
+                break;
+            }
+        }
+        if (!found) {
+            categories.push_back(product.getCategory());
+        }
+    }
+    return categories;
+}
+
 // Zapis produktów do pliku
 void Store::saveProducts(string filename, vector<Product> products){
     string filepath = "data/" + filename;

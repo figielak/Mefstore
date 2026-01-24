@@ -8,7 +8,8 @@ DATA_BUILD := $(BUILD_DIR)/data
 
 SRCS := $(wildcard $(SRC_DIR)/*.cpp) \
         $(wildcard $(SRC_DIR)/core/*.cpp) \
-        $(wildcard $(SRC_DIR)/ui/*.cpp)
+        $(wildcard $(SRC_DIR)/ui/*.cpp) \
+        $(wildcard $(SRC_DIR)/algorithms/*.cpp)
 
 OBJS := $(patsubst $(SRC_DIR)/%.cpp,$(BUILD_DIR)/%.o,$(SRCS))
 
