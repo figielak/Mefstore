@@ -16,6 +16,8 @@ public:
 
     vector<Product> getProducts();
 
+    void saveProducts(string filename, vector<Product> products);
+
     void addProduct(string filename, string product_name, double product_price, string product_category);
 
     bool removeProduct(string filename, string searchValue);
@@ -23,6 +25,7 @@ public:
     void editProduct(string filename, string searchValue, string new_name, double new_price, string new_category);
 
     void loadProducts(string filename);
+
 
 };
 

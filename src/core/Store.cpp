@@ -13,6 +13,23 @@ Store::Store(){
 vector<Product> Store::getProducts(){
     return products;
 }
+// Zapis produktów do pliku
+void Store::saveProducts(string filename, vector<Product> products){
+    string filepath = "src/data/" + filename;
+    ofstream outfile(filepath, ios::trunc);
+    if (!outfile.is_open()) {
+        cout << "Nie udalo sie otworzyc pliku do zapisu: " << filename << endl;
+        return;
+    }
+    
+    for (const auto& p : products) {
+        outfile << p.getId() << "," << p.getName() << "," 
+                << p.getPrice() << "," << p.getCategory() << endl;
+    }
+    
+    outfile.close();
+    cout << "Plik " << filename << " zostal zaktualizowany." << endl;
+}
 
 // Wczytywanie produktów z pliku
 void Store::loadProducts(string filename){
@@ -94,19 +111,7 @@ void Store::addProduct(string filename, string product_name, double product_pric
     cout << "Dodano nowy produkt '" << product_name << "' z ID: " << newId << endl;
     
     // Zapis 
-    ofstream outfile(filepath, ios::trunc);
-    if (!outfile.is_open()) {
-        cout << "Nie udalo sie otworzyc pliku do zapisu: " << filename << endl;
-        return;
-    }
-    
-    for (const auto& p : products) {
-        outfile << p.getId() << "," << p.getName() << "," 
-                << p.getPrice() << "," << p.getCategory() << endl;
-    }
-    
-    outfile.close();
-    cout << "Plik " << filename << " zostal zaktualizowany." << endl;
+    saveProducts(filename, products);
 }
 
 void Store::editProduct(string filename, string searchValue, string new_name, double new_price, string new_category){
@@ -150,19 +155,7 @@ void Store::editProduct(string filename, string searchValue, string new_name, do
     }
     
     // Zapis
-    ofstream outfile(filepath, ios::trunc);
-    if (!outfile.is_open()) {
-        cout << "Nie udalo sie otworzyc pliku do zapisu: " << filename << endl;
-        return;
-    }
-    
-    for (const auto& p : products) {
-        outfile << p.getId() << "," << p.getName() << "," 
-                << p.getPrice() << "," << p.getCategory() << endl;
-    }
-    
-    outfile.close();
-    cout << "Plik " << filename << " został zaktualizowany." << endl;
+    saveProducts(filename, products);
 }
 
 // Usuwanie produktu - automatyczne wykrywanie po czym szukać (ID lub nazwa)
@@ -209,18 +202,6 @@ bool Store::removeProduct(string filename, string searchValue) {
     cout << "Produkt został usunięty." << endl;
     
     // Zapis
-    ofstream outfile(filepath, ios::trunc);
-    if (!outfile.is_open()) {
-        cout << "Nie udalo sie otworzyc pliku do zapisu: " << filename << endl;
-        return false;
-    }
-    
-    for (const auto& p : products) {
-        outfile << p.getId() << "," << p.getName() << "," 
-                << p.getPrice() << "," << p.getCategory() << endl;
-    }
-    
-    outfile.close();
-    cout << "Plik " << filename << " został zaktualizowany." << endl;
+    saveProducts(filename, products);
     return true;
 }

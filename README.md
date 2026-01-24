@@ -9,15 +9,16 @@ make
 
 Aby uruchomić program w katalogu build należy uruchomić polecenie:
 ```bash
-./Mefstore
+./build/Mefstore
 ```
 lub uruchomić Mefstore.exe w katalogu build
 
 ## TODO
 ### Mateusz
-- [ ] Dodawanie produktów
-- [ ] Usuwanie produktów
-- [ ] Edytowanie produktów
+- [x] Dodawanie produktów
+- [x] Usuwanie produktów
+- [x] Edytowanie produktów
+- [ ] Szukanie produktów po nazwie (lichtenstein algorithm)
 
 ### Krystian
 - [x] GUI
