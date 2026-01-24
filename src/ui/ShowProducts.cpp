@@ -32,31 +32,25 @@ void ShowProducts::handleProductsMenuChoices(int choice, Store& store){
         default: cout << "Nieprawidłowy wybór\n";
     }
 }
-//funkcja do testowania wyswietlania wszystkich produktow
-void ShowProducts::showAllProducts(Store& store){
-    system("CLS");
-    system("clear");
-    cout << "\n+====== Produkty ======+\n";
-    for (Product& product : store.getProducts()){
-        cout << "[" << product.getId() << "] " << product.getName() << " - " << product.getPrice() << " PLN - " << product.getCategory() << "\n";
-    }
-    cout << "+=====================+\n";
-}
+
+// Wyświetlenie produktów posortowanych po ID
 void ShowProducts::showProductsById(Store& store){
     system("CLS");
     system("clear");
     cout << "\n+====== Produkty ======+\n";
     for (Product& product : store.getProducts()){
-        cout << "[" << product.getId() << "] " << product.getName() << " \n";
+        cout << "[" << product.getId() << "] " << product.getName() << " - " << product.getPrice() << " PLN" << endl;
     }
     cout << "+=====================+\n";
 }
 
+// Wyświetlenie produktów posortowanych po nazwie
 void ShowProducts::showProductsByName(Store& store){
     // TODO: Dodaj sortowanie po nazwie
     return;
 }
 
+// Wyświetlenie produktów danej kategorii
 void ShowProducts::showProductsByCategory(Store& store){
     // TODO: Dodaj wybór kategorii
     return;

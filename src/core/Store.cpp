@@ -15,25 +15,25 @@ vector<Product> Store::getProducts(){
 }
 // Zapis produktów do pliku
 void Store::saveProducts(string filename, vector<Product> products){
-    string filepath = "src/data/" + filename;
+    string filepath = "data/" + filename;
     ofstream outfile(filepath, ios::trunc);
     if (!outfile.is_open()) {
         cout << "Nie udalo sie otworzyc pliku do zapisu: " << filename << endl;
         return;
     }
-    
+
     for (const auto& p : products) {
-        outfile << p.getId() << "," << p.getName() << "," 
+        outfile << p.getId() << "," << p.getName() << ","
                 << p.getPrice() << "," << p.getCategory() << endl;
     }
-    
+
     outfile.close();
     cout << "Plik " << filename << " zostal zaktualizowany." << endl;
 }
 
 // Wczytywanie produktów z pliku
 void Store::loadProducts(string filename){
-    string filepath = "src/data/" + filename;
+    string filepath = "data/" + filename;
     cout << "Wczytywanie produktów z pliku: " << filepath << endl;
     ifstream file(filepath);
 
@@ -73,9 +73,9 @@ void Store::addProduct(string filename, string product_name, double product_pric
     // Wczytujemy aktualne produkty
     products.clear();
     loadProducts(filename);
-    
-    string filepath = "src/data/" + filename;
-    
+
+    string filepath = "data/" + filename;
+
     // Sprawdzamy czy istnieje produkt o danej nazwie jeśli tak to zwracamy jego ID aby uniknąć duplikatów
     for (const auto& p : products) {
         if (p.getName() == product_name) {
@@ -83,8 +83,8 @@ void Store::addProduct(string filename, string product_name, double product_pric
             return;
         }
     }
-    
-    // Znajdujemy pierwszy wolny ID dla nowego produktu 
+
+    // Znajdujemy pierwszy wolny ID dla nowego produktu
     int newId = -1;
     for(size_t i = 1; i <= products.size() + 1; i++){
         bool exists = false;
@@ -99,7 +99,7 @@ void Store::addProduct(string filename, string product_name, double product_pric
             break;
         }
     }
-    
+
     // Dodajemy nowy produkt z wolnym ID na właściwą pozycję według ID
     int insertPos = 0;
     for( size_t i = 0; i < products.size(); i++){
@@ -109,8 +109,8 @@ void Store::addProduct(string filename, string product_name, double product_pric
     }
     products.insert(products.begin() + insertPos, Product(newId, product_name, product_price, product_category));
     cout << "Dodano nowy produkt '" << product_name << "' z ID: " << newId << endl;
-    
-    // Zapis 
+
+    // Zapis
     saveProducts(filename, products);
 }
 
@@ -119,8 +119,8 @@ void Store::editProduct(string filename, string searchValue, string new_name, do
     products.clear();
     loadProducts(filename);
 
-    string filepath = "src/data/" + filename;
-    
+    string filepath = "data/" + filename;
+
     bool found = false;
     try {
         int id = stoi(searchValue);
@@ -148,12 +148,12 @@ void Store::editProduct(string filename, string searchValue, string new_name, do
             }
         }
     }
-    
+
     if(!found){
         cout << "Nie znaleziono produktu: " << searchValue << endl;
         return;
     }
-    
+
     // Zapis
     saveProducts(filename, products);
 }
@@ -164,11 +164,11 @@ bool Store::removeProduct(string filename, string searchValue) {
     products.clear();
     loadProducts(filename);
 
-    string filepath = "src/data/" + filename;
-    
+    string filepath = "data/" + filename;
+
     bool found = false;
     int indexToRemove = -1;
-    
+
     try {
         int id = stoi(searchValue);
         // Szukamy po ID
@@ -191,16 +191,16 @@ bool Store::removeProduct(string filename, string searchValue) {
             }
         }
     }
-    
+
     if(!found){
         cout << "Nie znaleziono produktu: " << searchValue << endl;
         return false;
     }
-    
+
     // Usuń produkt
     products.erase(products.begin() + indexToRemove);
     cout << "Produkt został usunięty." << endl;
-    
+
     // Zapis
     saveProducts(filename, products);
     return true;
