@@ -16,7 +16,7 @@ public:
 
     vector<Product> getProducts();
 
-    void addProduct(const Product& product);
+    int addProduct(const Product& product, string filename, string product_name, double product_price, string product_category);
 
     void removeProduct(const string& name);
 

@@ -36,7 +36,7 @@ void StoreManager::handleStoreManagerChoices(int choice, Store& store){
 }
 
 void StoreManager::addProduct(Store& store){
-    // TODO: Dodawanie produktu (gdy Mati skończy funkcje)
+    
     return;
 }
 
