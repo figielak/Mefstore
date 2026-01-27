@@ -9,7 +9,7 @@ make
 
 Aby uruchomić program w katalogu build należy uruchomić polecenie:
 ```bash
-./build/Mefstore
+./Mefstore
 ```
 lub uruchomić Mefstore.exe w katalogu build
 

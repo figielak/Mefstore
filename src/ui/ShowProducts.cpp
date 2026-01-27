@@ -38,25 +38,25 @@ void ShowProducts::handleProductsMenuChoices(int choice, Store& store){
 void ShowProducts::showAllProducts(Store& store) {
     cout << "\033[2J\033[H";
     cout << "╔══════════════════════════════════════════════╗\n"
-         << "║                 LISTA PRODUKTÓW              ║\n"
-         << "╚══════════════════════════════════════════════╝\n";
+         << "║               LISTA PRODUKTÓW                ║\n"
+         << "╠══════════════════════════════════════════════╝\n";
     for (const Product& p : store.getProducts()) {
-        cout << right << "[" << p.getId() << "] " << left << p.getName() << " - " << right << p.getPrice() << " PLN\n";
+        cout << right << "║ [" << p.getId() << "] " << left << p.getName() << " - " << right << p.getPrice() << " PLN\n";
     }
-    cout << "────────────────────────────────────────────────\n";
+    cout << "╚══════════════════════════════════════════════╝\n";
 }
 
 // Wyświetlenie produktów posortowanych po nazwie A-Z
 void ShowProducts::showProductsByNameAZ(Store& store){
     cout << "\033[2J\033[H";
     cout << "╔══════════════════════════════════════════════╗\n"
-         << "║                 LISTA PRODUKTÓW              ║\n"
-         << "╚══════════════════════════════════════════════╝\n";
+         << "║             LISTA PRODUKTÓW (A-Z)            ║\n"
+         << "╠══════════════════════════════════════════════╝\n";
     Sorting::bubbleSortByNameAZ(store.getProducts());
     for (Product& product : store.getProducts()){
-        cout << right << "[" << product.getId() << "] " << left << product.getName() << " - " << right << product.getPrice() << " PLN" << endl;
+        cout << right << "║ [" << product.getId() << "] " << left << product.getName() << " - " << right << product.getPrice() << " PLN\n";
     }
-    cout << "────────────────────────────────────────────────\n";
+    cout << "╚══════════════════════════════════════════════╝\n";
     return;
 }
 
@@ -64,13 +64,13 @@ void ShowProducts::showProductsByNameAZ(Store& store){
 void ShowProducts::showProductsByNameZA(Store& store){
     cout << "\033[2J\033[H";
     cout << "╔══════════════════════════════════════════════╗\n"
-         << "║                 LISTA PRODUKTÓW              ║\n"
-         << "╚══════════════════════════════════════════════╝\n";
+         << "║             LISTA PRODUKTÓW (Z-A)            ║\n"
+         << "╠══════════════════════════════════════════════╝\n";
     Sorting::bubbleSortByNameZA(store.getProducts());
     for (Product& product : store.getProducts()){
-        cout << right << "[" << product.getId() << "] " << left << product.getName() << " - " << right << product.getPrice() << " PLN" << endl;
+        cout << right << "║ [" << product.getId() << "] " << left << product.getName() << " - " << right << product.getPrice() << " PLN\n";
     }
-    cout << "────────────────────────────────────────────────\n";
+    cout << "╚══════════════════════════════════════════════╝\n";
     return;
 }
 
@@ -80,7 +80,7 @@ void ShowProducts::showProductsByCategory(Store& store){
 
     do {
         cout << "╔══════════════════════════════════════════════╗\n"
-             << "║                 WYBÓR KATEGORII              ║\n"
+             << "║               WYBÓR KATEGORII                ║\n"
              << "╚══════════════════════════════════════════════╝\n";
         for (int i = 0; i < store.getCategories().size(); i++){
             cout << "[" << i + 1 << "] " << store.getCategories()[i] << endl;

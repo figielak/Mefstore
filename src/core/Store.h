@@ -2,8 +2,11 @@
 #define STORE_H
 
 #include "Product.h"
-#include <vector>
+#include <iostream>
+#include <fstream>
+#include <sstream>
 #include <string>
+#include <vector>
 
 using namespace std;
 
