@@ -6,20 +6,21 @@ void StoreManager::runStoreManager(Store& store) {
     do {
         showStoreManager(store);
         cin >> choice;
-        system("CLS");
-        system("clear");
+        cout << "\033[2J\033[H";
         handleStoreManagerChoices(choice, store);
     } while (choice != 0);
 }
 
 void StoreManager::showStoreManager(Store& store){
-    cout << "\n+=== Mefstore ===+\n";
-    cout << "[1] Wyświetl produkty \n";
-    cout << "[2] Dodaj produkt \n";
-    cout << "[3] Edytuj produkt \n";
-    cout << "[4] Usuń produkt \n";
-    cout << "[0] Wroc do menu \n";
-    cout << "+=====================+\n";
+    cout << "╔══════════════════════════════════════════╗\n"
+         << "║                 MEFSTORE                 ║\n"
+         << "╠══════════════════════════════════════════╣\n";
+    cout << "║[1] Wyświetl produkty                     ║\n";
+    cout << "║[2] Dodaj produkt                         ║\n";
+    cout << "║[3] Edytuj produkt                        ║\n";
+    cout << "║[4] Usuń produkt                          ║\n";
+    cout << "║[0] Wroc do menu                          ║\n";
+    cout << "╚══════════════════════════════════════════╝\n";
 }
 
 void StoreManager::handleStoreManagerChoices(int choice, Store& store){
@@ -39,13 +40,16 @@ void StoreManager::addProduct(Store& store){
     string name;
     string category;
     double price = 0.0;
-    cout << "\n+=== Dodaj produkt ===+\n";
-    cout << "Podaj nazwę produktu: ";
+    cout << "╔══════════════════════════════════════════╗\n"
+         << "║            DODAWANIE PRODUKTU            ║\n"
+         << "╠══════════════════════════════════════════╝\n";
+    cout << "║Podaj nazwę produktu: ";
     cin >> name;
-    cout << "Podaj cenę produktu: ";
+    cout << "║Podaj cenę produktu: ";
     cin >> price;
-    cout << "Podaj kategorię produktu: ";
+    cout << "║Podaj kategorię produktu: ";
     cin >> category;
+    cout << "╚═══════════════════════════════════════════\n";
 
     store.addProduct("products.csv", name, price, category);
 }
@@ -55,24 +59,30 @@ void StoreManager::editProduct(Store& store){
     string new_name;
     string new_category;
     double new_price = 0.0;
-    cout << "\n+=== Edytuj produkt ===+" << endl;
-    cout << "Podaj ID lub nazwę produktu: ";
+    cout << "╔══════════════════════════════════════════╗\n"
+         << "║            EDYCJA PRODUKTU               ║\n"
+         << "╠══════════════════════════════════════════╝\n";
+    cout << "║Podaj ID lub nazwę produktu: ";
     cin >> searchValue;
-    cout << "Podaj nową nazwę produktu: ";
+    cout << "║Podaj nową nazwę produktu: ";
     cin >> new_name;
-    cout << "Podaj nową cenę produktu: ";
+    cout << "║Podaj nową cenę produktu: ";
     cin >> new_price;
-    cout << "Podaj nową kategorię produktu: ";
+    cout << "║Podaj nową kategorię produktu: ";
     cin >> new_category;
+    cout << "╚═══════════════════════════════════════════\n";
     store.editProduct("products.csv", searchValue, new_name, new_price, new_category);
 }
 
 void StoreManager::removeProduct(Store& store){
     string searchValue;
-    
-    cout << "\n+=== Usuwanie produktu ===+" << endl;
-    cout << "Podaj ID lub nazwę produktu: ";
+
+    cout << "╔══════════════════════════════════════════╗\n"
+         << "║            USUWANIE PRODUKTU             ║\n"
+         << "╠══════════════════════════════════════════╝\n";
+    cout << "║Podaj ID lub nazwę produktu: ";
     cin >> searchValue;
-    
+    cout << "╚═══════════════════════════════════════════\n";
+
     store.removeProduct("products.csv", searchValue);
 }

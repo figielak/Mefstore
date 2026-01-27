@@ -18,6 +18,7 @@ public:
 
 private:
     void showMenu();
+    void showGoodbye();
 
     void handleMenuChoices(int choice, Store& store);
 };

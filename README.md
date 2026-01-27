@@ -16,18 +16,11 @@ lub uruchomić Mefstore.exe w katalogu build
 ## TODO
 ### Mateusz
 - [ ] Szukanie produktów po nazwie (lichtenstein algorithm)
+- [ ] Usuwanie produktów z koszyka
+- [ ] Edytowanie produktów w koszyku
 
 ### Krystian
 - [ ] Czekanie na kliknięcie przycisku bez klikania enter
 - [ ] Dodawanie produktów do koszyka
 - [ ] Wyświetlanie koszyka
 - [ ] Genrowanie paragonu do .txt
-- [ ] Duzy napis ASCII do zobaczenia!!
-- [ ] Popraw clearowanie konsoli
-- [ ] Popraw wyglad gui
-
-## Check List
-
-### Koszyk
-- [ ] Usuwanie produktów z koszyka
-- [ ] Edytowanie produktów w koszyku

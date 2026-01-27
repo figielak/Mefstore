@@ -6,20 +6,21 @@ void ShowProducts::showProducts(Store& store){
     do {
         showProductsMenu(store);
         cin >> choice;
-        system("CLS");
-        system("clear");
+        cout << "\033[2J\033[H";
         handleProductsMenuChoices(choice, store);
     } while (choice != 0);
 }
 
 void ShowProducts::showProductsMenu(Store& store){
-    cout << "\n+=== Wybierz opcje ===+\n";
-    cout << "[1] Wyświetl wszystkie produkty\n";
-    cout << "[2] Sortowanie po nazwie A-Z\n";
-    cout << "[3] Sortowanie po nazwie Z-A\n";
-    cout << "[4] Wybierz kategorie\n";
-    cout << "[0] Wroc do menu\n";
-    cout << "+=====================+\n";
+    cout << "╔══════════════════════════════════════════╗\n"
+         << "║                 WYBÓR OPCJI              ║\n"
+         << "╠══════════════════════════════════════════╣\n";
+    cout << "║[1] Wyświetl wszystkie produkty           ║\n";
+    cout << "║[2] Sortowanie po nazwie A-Z              ║\n";
+    cout << "║[3] Sortowanie po nazwie Z-A              ║\n";
+    cout << "║[4] Wybierz kategorie                     ║\n";
+    cout << "║[0] Wroc do menu                          ║\n";
+    cout << "╚══════════════════════════════════════════╝\n";
 }
 
 void ShowProducts::handleProductsMenuChoices(int choice, Store& store){
@@ -35,42 +36,41 @@ void ShowProducts::handleProductsMenuChoices(int choice, Store& store){
 
 // Wyświetlenie wszystkich produktów
 void ShowProducts::showAllProducts(Store& store) {
-    system("clear");
-
-    cout << "\n+-------------------------------------------+\n";
-    cout << "| ID  | Nazwa produktu        | Cena (PLN) |\n";
-    cout << "+-------------------------------------------+\n";
-
+    cout << "\033[2J\033[H";
+    cout << "╔══════════════════════════════════════════════╗\n"
+         << "║                 LISTA PRODUKTÓW              ║\n"
+         << "╚══════════════════════════════════════════════╝\n";
     for (const Product& p : store.getProducts()) {
-        cout << "| " << right << setw(3) << p.getId() << " | " << left << setw(20) << p.getName() << " | "<< right << setw(9) << p.getPrice() << endl;
+        cout << right << "[" << p.getId() << "] " << left << p.getName() << " - " << right << p.getPrice() << " PLN\n";
     }
-
-    cout << "+-------------------------------------------+\n";
+    cout << "────────────────────────────────────────────────\n";
 }
 
 // Wyświetlenie produktów posortowanych po nazwie A-Z
 void ShowProducts::showProductsByNameAZ(Store& store){
-    system("CLS");
-    system("clear");
-    cout << "\n+====== Produkty ======+\n";
+    cout << "\033[2J\033[H";
+    cout << "╔══════════════════════════════════════════════╗\n"
+         << "║                 LISTA PRODUKTÓW              ║\n"
+         << "╚══════════════════════════════════════════════╝\n";
     Sorting::bubbleSortByNameAZ(store.getProducts());
     for (Product& product : store.getProducts()){
-        cout << "[" << product.getId() << "] " << product.getName() << " - " << product.getPrice() << " PLN" << endl;
+        cout << right << "[" << product.getId() << "] " << left << product.getName() << " - " << right << product.getPrice() << " PLN" << endl;
     }
-    cout << "+=====================+\n";
+    cout << "────────────────────────────────────────────────\n";
     return;
 }
 
 // Wyświetlenie produktów posortowanych po nazwie Z-A
 void ShowProducts::showProductsByNameZA(Store& store){
-    system("CLS");
-    system("clear");
-    cout << "\n+====== Produkty ======+\n";
+    cout << "\033[2J\033[H";
+    cout << "╔══════════════════════════════════════════════╗\n"
+         << "║                 LISTA PRODUKTÓW              ║\n"
+         << "╚══════════════════════════════════════════════╝\n";
     Sorting::bubbleSortByNameZA(store.getProducts());
     for (Product& product : store.getProducts()){
-        cout << "[" << product.getId() << "] " << product.getName() << " - " << product.getPrice() << " PLN" << endl;
+        cout << right << "[" << product.getId() << "] " << left << product.getName() << " - " << right << product.getPrice() << " PLN" << endl;
     }
-    cout << "+=====================+\n";
+    cout << "────────────────────────────────────────────────\n";
     return;
 }
 
@@ -79,29 +79,31 @@ void ShowProducts::showProductsByCategory(Store& store){
     int choice = -1;
 
     do {
-        cout << "\n+====== Wybierz kategorię ======+\n";
+        cout << "╔══════════════════════════════════════════════╗\n"
+             << "║                 WYBÓR KATEGORII              ║\n"
+             << "╚══════════════════════════════════════════════╝\n";
         for (int i = 0; i < store.getCategories().size(); i++){
             cout << "[" << i + 1 << "] " << store.getCategories()[i] << endl;
         }
         cout << "[0] Wróć do menu głównego\n";
-        cout << "+=====================+\n";
 
         cin >> choice;
-        system("CLS");
-        system("clear");
+        cout << "\033[2J\033[H";
 
         if (choice < 1 || choice > store.getCategories().size()) {
             cout << "Nieprawidłowy wybór\n";
             continue;
         }
 
-        cout << "\n+====== Produkty ======+\n";
+        cout << "╔══════════════════════════════════════════════╗\n"
+             << "║                 LISTA PRODUKTÓW              ║\n"
+             << "╚══════════════════════════════════════════════╝\n";
         for (Product& product : store.getProducts()) {
             if (product.getCategory() == store.getCategories()[choice - 1]) {
-                cout << "[" << product.getId() << "] " << product.getName() << " - " << product.getPrice() << " PLN" << endl;
+                cout << right << "[" << product.getId() << "] " << left << product.getName() << " - " << right << product.getPrice() << " PLN" << endl;
             }
         }
-        cout << "+=====================+\n";
+        cout << "────────────────────────────────────────────────\n";
         break;
     } while (choice != 0);
 

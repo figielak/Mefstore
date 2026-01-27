@@ -6,8 +6,7 @@ int main() {
     Store store;
     ConsoleUI ui;
 
-    system("CLS");
-    system("clear");
+    cout << "\033[2J\033[H";
     ui.run(store);
 
     return 0;
