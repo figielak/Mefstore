@@ -23,6 +23,8 @@ lub uruchomić Mefstore.exe w katalogu build
 - [ ] Wyświetlanie koszyka
 - [ ] Genrowanie paragonu do .txt
 - [ ] Duzy napis ASCII do zobaczenia!!
+- [ ] Popraw clearowanie konsoli
+- [ ] Popraw wyglad gui
 
 ## Check List
 

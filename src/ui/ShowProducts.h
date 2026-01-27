@@ -4,6 +4,7 @@
 #include "../core/Store.h"
 #include "../algorithms/Sorting.h"
 #include <iostream>
+#include <iomanip>
 
 using namespace std;
 

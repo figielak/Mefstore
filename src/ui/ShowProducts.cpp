@@ -34,14 +34,18 @@ void ShowProducts::handleProductsMenuChoices(int choice, Store& store){
 }
 
 // Wyświetlenie wszystkich produktów
-void ShowProducts::showAllProducts(Store& store){
-    system("CLS");
+void ShowProducts::showAllProducts(Store& store) {
     system("clear");
-    cout << "\n+====== Produkty ======+\n";
-    for (Product& product : store.getProducts()){
-        cout << "[" << product.getId() << "] " << product.getName() << " - " << product.getPrice() << " PLN" << endl;
+
+    cout << "\n+-------------------------------------------+\n";
+    cout << "| ID  | Nazwa produktu        | Cena (PLN) |\n";
+    cout << "+-------------------------------------------+\n";
+
+    for (const Product& p : store.getProducts()) {
+        cout << "| " << right << setw(3) << p.getId() << " | " << left << setw(20) << p.getName() << " | "<< right << setw(9) << p.getPrice() << endl;
     }
-    cout << "+=====================+\n";
+
+    cout << "+-------------------------------------------+\n";
 }
 
 // Wyświetlenie produktów posortowanych po nazwie A-Z
