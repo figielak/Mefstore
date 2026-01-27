@@ -47,9 +47,9 @@ void BasketManager::showBasket(Store& store){
         cout << "║ " << p.getName() << " - " << p.getPrice() << " PLN\n";
         total += p.getPrice();
     }
-    cout << "╠══════════════════════════════════════╗\n";
-    cout << "║ Suma: " << total << " PLN            ║\n";
-    cout << "╚══════════════════════════════════════╝\n";
+    cout << "╠═══════════════════════════════════════\n";
+    cout << "║ Suma: " << total << " PLN\n";
+    cout << "╚═══════════════════════════════════════\n";
     return;
 }
 

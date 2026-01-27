@@ -16,11 +16,10 @@ lub uruchomić Mefstore.exe w katalogu build
 ## TODO
 ### Mateusz
 - [ ] Szukanie produktów po nazwie (lichtenstein algorithm)
+- [ ] Dodawanie produktów do koszyka
 - [ ] Usuwanie produktów z koszyka
 - [ ] Edytowanie produktów w koszyku
 
+
 ### Krystian
-- [ ] Czekanie na kliknięcie przycisku bez klikania enter
-- [ ] Dodawanie produktów do koszyka
-- [ ] Wyświetlanie koszyka
 - [ ] Genrowanie paragonu do .txt
