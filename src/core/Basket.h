@@ -12,9 +12,11 @@ private:
 public:
     vector<Product> getBasket();
 
-    void addProduct(Product product);
+    void addProduct(string product_input, const vector<Product>& storeProducts);
 
-    void removeProduct(Product product);
+    void removeProduct(string product_input);
+
+    void editProduct(string oldProduct_input, string newProduct_input, const vector<Product>& storeProducts);
 };
 
 #endif //BASKET_H

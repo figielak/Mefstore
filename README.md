@@ -15,10 +15,10 @@ lub uruchomić Mefstore.exe w katalogu build
 
 ## TODO
 ### Mateusz
-- [ ] Szukanie produktów po nazwie (lichtenstein algorithm)
-- [ ] Dodawanie produktów do koszyka
-- [ ] Usuwanie produktów z koszyka
-- [ ] Edytowanie produktów w koszyku
+- [x] Szukanie produktów po nazwie (lichtenstein algorithm)
+- [x] Dodawanie produktów do koszyka
+- [x] Usuwanie produktów z koszyka
+- [x] Edytowanie produktów w koszyku
 
 
 ### Krystian

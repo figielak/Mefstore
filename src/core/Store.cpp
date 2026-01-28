@@ -12,7 +12,7 @@ vector<string> Store::getCategories(){
     vector<string> categories;
     for (const auto& product : products) {
         bool found = false;
-        for (int i = 0; i < categories.size(); i++) {
+        for (size_t i = 0; i < categories.size(); i++) {
             if (categories[i] == product.getCategory()) {
                 found = true;
                 break;
@@ -27,7 +27,7 @@ vector<string> Store::getCategories(){
 
 // Zapis produktów do pliku
 void Store::saveProducts(string filename, vector<Product> products){
-    string filepath = "data/" + filename;
+    string filepath = "src/data/" + filename;
     ofstream outfile(filepath, ios::trunc);
     if (!outfile.is_open()) {
         cout << "Nie udalo sie otworzyc pliku do zapisu: " << filename << endl;
@@ -45,7 +45,7 @@ void Store::saveProducts(string filename, vector<Product> products){
 
 // Wczytywanie produktów z pliku
 void Store::loadProducts(string filename){
-    string filepath = "data/" + filename;
+    string filepath = "src/data/" + filename;
     cout << "Wczytywanie produktów z pliku: " << filepath << endl;
     ifstream file(filepath);
 
@@ -86,7 +86,7 @@ void Store::addProduct(string filename, string product_name, double product_pric
     products.clear();
     loadProducts(filename);
 
-    string filepath = "data/" + filename;
+    string filepath = "src/data/" + filename;
 
     // Sprawdzamy czy istnieje produkt o danej nazwie jeśli tak to zwracamy jego ID aby uniknąć duplikatów
     for (const auto& p : products) {
@@ -114,7 +114,7 @@ void Store::addProduct(string filename, string product_name, double product_pric
 
     // Dodajemy nowy produkt z wolnym ID na właściwą pozycję według ID
     int insertPos = 0;
-    for( size_t i = 0; i < products.size(); i++){
+    for(size_t i = 0; i < products.size(); i++){
         if(products[i].getId() < newId){
             insertPos = i + 1;
         }
@@ -131,7 +131,7 @@ void Store::editProduct(string filename, string searchValue, string new_name, do
     products.clear();
     loadProducts(filename);
 
-    string filepath = "data/" + filename;
+    string filepath = "src/data/" + filename;
 
     bool found = false;
     try {
@@ -176,7 +176,7 @@ bool Store::removeProduct(string filename, string searchValue) {
     products.clear();
     loadProducts(filename);
 
-    string filepath = "data/" + filename;
+    string filepath = "src/data/" + filename;
 
     bool found = false;
     int indexToRemove = -1;
