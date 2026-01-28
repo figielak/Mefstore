@@ -59,8 +59,32 @@ void BasketManager::generateReceipt(Store& store){
 }
 
 void BasketManager::addToBasket(Store& store){
-    // TODO: Dodawanie produktu do koszyka
-    return;
+    ShowProducts showProducts;
+    showProducts.showProducts(store);
+    
+    cout << "Podaj ID produktu do dodania do koszyka (0 aby anulować): ";
+    int productId;
+    cin >> productId;
+    
+    if (productId == 0) {
+        cout << "Anulowano dodawanie produktu.\n";
+        return;
+    }
+    
+    // Znajdź produkt o podanym ID
+    bool found = false;
+    for (const Product& p : store.getProducts()) {
+        if (p.getId() == productId) {
+            basket.addProduct(p);
+            cout << "Produkt '" << p.getName() << "' został dodany do koszyka.\n";
+            found = true;
+            break;
+        }
+    }
+    
+    if (!found) {
+        cout << "Nie znaleziono produktu o ID: " << productId << "\n";
+    }
 }
 
 void BasketManager::removeFromBasket(Store& store){

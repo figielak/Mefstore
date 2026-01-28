@@ -34,7 +34,10 @@ namespace Search {
     vector<Product> searchProducts(const vector<Product>& products, const string& searchQuery, int errorThreshold) {
         vector<Product> matchingProducts;
         
-        int errorThreshold = max(1, (int)(searchQuery.length() * 0.25)); // Ustalanie progu błędów na 25% długości zapytania
+        // Jeśli nie podano progu błędów, ustal go na 25% długości zapytania
+        if (errorThreshold == 0) {
+            errorThreshold = max(1, (int)(searchQuery.length() * 0.25));
+        }
 
         for (const auto& product : products) {
             int distance = levenshteinDistance(searchQuery, product.getName());

@@ -5,15 +5,10 @@ vector<Product> Basket::getBasket(){
 }
 
 void Basket::addProduct(Product product){
-    // TODO: Dodanie produktu do koszyka
-    return;
+    products.push_back(product);
 }
 
 void Basket::removeProduct(Product product){
     // TODO: Usuwanie produktu z koszyka
     return;
-}
-
-void Basket::editProduct(Product oldProduct, Product newProduct){ 
-    
 }
