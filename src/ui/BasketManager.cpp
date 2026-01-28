@@ -67,3 +67,8 @@ void BasketManager::removeFromBasket(Store& store){
     // TODO: Usuwanie produktu z koszyka
     return;
 }
+
+void BasketManager::editBasket(Store& store){
+
+    return;
+}

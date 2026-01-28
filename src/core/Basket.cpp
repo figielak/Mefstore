@@ -13,3 +13,7 @@ void Basket::removeProduct(Product product){
     // TODO: Usuwanie produktu z koszyka
     return;
 }
+
+void Basket::editProduct(Product oldProduct, Product newProduct){ 
+    
+}

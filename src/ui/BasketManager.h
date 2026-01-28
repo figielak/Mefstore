@@ -27,6 +27,8 @@ private:
     void addToBasket(Store& store);
 
     void removeFromBasket(Store& store);
+
+    void editBasket(Store& store);
 };
 
 
