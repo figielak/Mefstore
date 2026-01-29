@@ -21,7 +21,6 @@ void BasketManager::showBasketManager(Store& store){
     cout << "║[3] Usuń produkt z koszyka            ║\n";
     cout << "║[4] Edytuj produkt w koszyku          ║\n";
     cout << "║[5] Wyświetl koszyk                   ║\n";
-    cout << "║[6] Generuj paragon                   ║\n";
     cout << "║[0] Wroc do menu                      ║\n";
     cout << "╚══════════════════════════════════════╝\n";
 }
@@ -35,7 +34,6 @@ void BasketManager::handleBasketManagerChoices(int choice, Store& store){
         case 3: removeFromBasket(store); break;
         case 4: editBasket(store); break;
         case 5: showBasket(store); break;
-        case 6: generateReceipt(store); break;
         case 0: break;
         default: cout << "Nieprawidłowy wybór\n";
     }
@@ -53,11 +51,6 @@ void BasketManager::showBasket(Store& store){
     cout << "╠═══════════════════════════════════════\n";
     cout << "║ Suma: " << total << " PLN\n";
     cout << "╚═══════════════════════════════════════\n";
-    return;
-}
-
-void BasketManager::generateReceipt(Store& store){
-    // TODO: Generowanie paragonu
     return;
 }
 

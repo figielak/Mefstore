@@ -40,7 +40,7 @@ namespace Search {
         }
         
         Product closestProduct = products[0];
-        int minDistance = INT_MAX;
+        int minDistance = 15;
         
         // Przeszukuje wszystkie produkty i znajduje najbliższy
         for (const auto& product : products) {
